@@ -13,7 +13,4 @@
     </div><!--/.container-->
     
 </footer>
-  <script src="././public/js/main.js"></script>
-  <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
-</body>
-</html>
+<?php require APPROOT . '/views/inc/script.php'; ?>
