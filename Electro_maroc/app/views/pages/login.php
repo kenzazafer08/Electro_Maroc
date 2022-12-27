@@ -2,7 +2,7 @@
 <div class="w-full h-screen bg-[url('<?=URLROOT?>/public/img/bg.jpg')] bg-cover bg-center flex flex-col items-center justify-center">
     <div class="w-[70%] h-[80%] bg-white rounded-lg shadow-2xl shadow-black flex"> 
         <div class="w-1/2 h-full bg-[url('<?=URLROOT?>/public/img/bg.jpg')] bg-cover flex flex-col items-center justify-around">
-        <h2 class="text-4xl font-extrabold text-white text-center ">Welcome to Electro Maroc 🖐 <br><a href="<?=URLROOT?>" class="text-white mt-8 font-thin text-sm"> Go back</a></h2>
+        <h2 class="text-4xl font-extrabold text-white text-center ">Welcome to Electro Maroc 🖐 <br><a href="<?=URLROOT?>" class="text-white mt-8 font-thin text-sm underline"> <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Go back</a></h2>
         
         </div>
         <div class="w-1/2 h-full bg-white bg-cover flex flex-col items-center justify-around">

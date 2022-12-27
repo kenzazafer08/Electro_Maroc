@@ -21,4 +21,22 @@
 
       $this->view('pages/register', $data);
     }
+    public function shop(){
+      $data = [
+      ];
+
+      $this->view('pages/shop', $data);
+    }
+    public function wishlist(){
+      $data = [
+      ];
+
+      $this->view('pages/wishlist', $data);
+    }
+    public function cart(){
+      $data = [
+      ];
+
+      $this->view('pages/cart', $data);
+    }
   }
