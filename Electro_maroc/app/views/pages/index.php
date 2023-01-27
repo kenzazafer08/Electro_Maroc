@@ -55,6 +55,7 @@
 </div>
 <div class = "flex flex-col">
 <div class="mt-8" id="show-more">
+<h2 class="text-4xl font-extrabold text-purple-800 text-center m-12">New Products December 2022</h2>
 <div class="grid grid-cols-4 ml-4 mb-8 gap-4 gap-y-10 w-full h-auto" >
 	<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col justify-around border border:black items-center hover:shadow-2xl hover:duration-1000">
 		<div class="text-xl font-bold text-center m-4 text-purple-900">Casque audio avec micro sans fil</div>

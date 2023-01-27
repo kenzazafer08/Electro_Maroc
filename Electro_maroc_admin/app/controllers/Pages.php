@@ -11,6 +11,13 @@
      
       $this->view('pages/index', $data);
     }
+    public function dashbord(){
+
+      $data = [
+        ];
+     
+      $this->view('pages/dashbord', $data);
+    }
     public function Products(){
 
       $data = [

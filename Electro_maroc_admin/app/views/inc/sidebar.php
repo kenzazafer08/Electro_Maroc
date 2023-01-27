@@ -75,7 +75,7 @@
 
                             <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10" style="display: none;">
                                 <a href="#" class="block px-4 py-2 text-sm text-[#080808] hover:bg-purple-800 hover:text-white">Admin</a>
-                                <a href="logout" class="block px-4 py-2 text-sm text-[#080808] hover:bg-purple-800 hover:text-white">Logout</a>
+                                <a href="<?=URLROOT?>" class="block px-4 py-2 text-sm text-[#080808] hover:bg-purple-800 hover:text-white">Logout</a>
                             </div>
                         </div>
                     </div>
