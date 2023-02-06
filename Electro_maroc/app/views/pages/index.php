@@ -1,225 +1,23 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require_once APPROOT . '/views/inc/header.php'; ?>
 <div class="flex flex-col bg-[url('<?php echo URLROOT; ?>/public/img/bg.jpg')] bg-cover bg-center pt-20 justify-around items-center w-full h-[550px] ">
-	<div class="flex flex-col items-center justify-between ">  
+<div class="flex flex-col items-center justify-between ">  
+	
 	<h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-100 md:text-5xl lg:text-6xl ">Electronics takes it to another level</h1>
 <p class="mb-6 text-lg font-normal text-white lg:text-xl sm:px-16 xl:px-48 text-center w-2/3">In <span class="text-purple-700">Electro Maroc</span>  you can find all the electronic product that u need to experience a better life with the best prices.</p>
 <a href="<?php echo URLROOT; ?>/pages/shop" class="w-32 h-12 bg-purple-900 text-white rounded-xl text-center pt-3 hover:text-purple-800 hover:border border-purple-900 hover:bg-white mb-8">Shop Now</a>
 </div> 
 </div>
 </div>
-<div class="h-[600px] w-full bg-white flex flex-col justify-around" id="new">
-	<h2 class="text-4xl font-extrabold text-purple-800 text-center m-12">New Products December 2022</h2>
-	<div class="flex justify-around items-center w-full h-2/4">
-	<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000 ">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Casque audio avec micro sans fil</div>
-		   <img src="././public/img/casque.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">URBAN2 RADIO+M.SD</div>
-		   <div class="font-extrabold text-center m-4 ">319 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center  hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Consoles</div>
-		   <img src="././public/img/console.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SONY CONSOLE PS5 VE RSION STANDARD</div>
-		   <div class="font-extrabold text-center m-4 ">8 999 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center  hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Gaufrier</div>
-		   <img src="././public/img/gaufrier.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SENCOR SWF1010BK</div>
-		   <div class="font-extrabold text-center m-4 ">549 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center  hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Séche cheveux</div>
-		   <img src="././public/img/seche.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">ROWENTA SECHE CHEVEUX CV7846 MAGIC NATURE</div>
-		   <div class="font-extrabold text-center m-4 ">449 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-	</div>
-	<div class ="flex justify-center w-full h-1/4 items-center mt-8 mb-8 "><button onclick="show()" class="w-32 h-12 bg-purple-900 text-white rounded-xl hover:text-purple-800 hover:border border-purple-900 hover:bg-white">Show More</button></div>
-</div>
-<div class = "flex flex-col">
-<div class="mt-8" id="show-more">
 <h2 class="text-4xl font-extrabold text-purple-800 text-center m-12">New Products December 2022</h2>
 <div class="grid grid-cols-4 ml-4 mb-8 gap-4 gap-y-10 w-full h-auto" >
-	<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col justify-around border border:black items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Casque audio avec micro sans fil</div>
-		   <img src="././public/img/casque.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">URBAN2 RADIO+M.SD</div>
-		   <div class="font-extrabold text-center m-4 ">319 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
+	<?php foreach($data['products'] as $product) :?>
+	<div class="w-64 h-80 rounded-sm flex flex-col justify-around border border:black items-center hover:shadow-2xl hover:duration-1000">
+		<div class="text-xl font-bold text-center m-4 text-purple-900"><?=$product->name?></div>
+		   <img src="<?=Imagepath?>/<?=$product->image?>" class="w-2/4 h-1/3"/>
+		   <div class="text-center mx-2"><?=$product->description?></div>
+		   <div class="font-extrabold text-center m-4 "><?=$product->prix?> DH</div>
 		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col justify-around border border:black items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Consoles</div>
-		   <img src="././public/img/console.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SONY CONSOLE PS5 VE RSION STANDARD</div>
-		   <div class="font-extrabold text-center m-4 ">8 999 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col justify-around border border:black items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Gaufrier</div>
-		   <img src="././public/img/gaufrier.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SENCOR SWF1010BK</div>
-		   <div class="font-extrabold text-center m-4 ">549 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Séche cheveux</div>
-		   <img src="././public/img/seche.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">ROWENTA SECHE CHEVEUX CV7846 MAGIC NATURE</div>
-		   <div class="font-extrabold text-center m-4 ">449 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Casque audio avec micro sans fil</div>
-		   <img src="././public/img/casque.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">URBAN2 RADIO+M.SD</div>
-		   <div class="font-extrabold text-center m-4 ">319 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Consoles</div>
-		   <img src="././public/img/console.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SONY CONSOLE PS5 VE RSION STANDARD</div>
-		   <div class="font-extrabold text-center m-4 ">8 999 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Gaufrier</div>
-		   <img src="././public/img/gaufrier.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SENCOR SWF1010BK</div>
-		   <div class="font-extrabold text-center m-4 ">549 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Séche cheveux</div>
-		   <img src="././public/img/seche.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">ROWENTA SECHE CHEVEUX CV7846 MAGIC NATURE</div>
-		   <div class="font-extrabold text-center m-4 ">449 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Casque audio avec micro sans fil</div>
-		   <img src="././public/img/casque.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">URBAN2 RADIO+M.SD</div>
-		   <div class="font-extrabold text-center m-4 ">319 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Consoles</div>
-		   <img src="././public/img/console.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SONY CONSOLE PS5 VE RSION STANDARD</div>
-		   <div class="font-extrabold text-center m-4 ">8 999 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Gaufrier</div>
-		   <img src="././public/img/gaufrier.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SENCOR SWF1010BK</div>
-		   <div class="font-extrabold text-center m-4 ">549 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Séche cheveux</div>
-		   <img src="././public/img/seche.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">ROWENTA SECHE CHEVEUX CV7846 MAGIC NATURE</div>
-		   <div class="font-extrabold text-center m-4 ">449 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Casque audio avec micro sans fil</div>
-		   <img src="././public/img/casque.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">URBAN2 RADIO+M.SD</div>
-		   <div class="font-extrabold text-center m-4 ">319 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Consoles</div>
-		   <img src="././public/img/console.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SONY CONSOLE PS5 VE RSION STANDARD</div>
-		   <div class="font-extrabold text-center m-4 ">8 999 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Gaufrier</div>
-		   <img src="././public/img/gaufrier.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">SENCOR SWF1010BK</div>
-		   <div class="font-extrabold text-center m-4 ">549 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-		<div class="drop-shadow-2xl w-64 h-80 rounded-sm flex flex-col border border:black justify-around items-center hover:shadow-2xl hover:duration-1000">
-		<div class="text-xl font-bold text-center m-4 text-purple-900">Séche cheveux</div>
-		   <img src="././public/img/seche.png" class="w-2/4 h-1/3"/>
-		   <div class="text-center">ROWENTA SECHE CHEVEUX CV7846 MAGIC NATURE</div>
-		   <div class="font-extrabold text-center m-4 ">449 DH</div>
-		   <div class="flex justify-center w-full m-0">
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-shopping-cart"></i></a>
-           <a href="#_" class="w-1/4 px-6 py-2 mb-2 text-md text-white hover:bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-heart"></i></a>
-		</div>
-		</div>
-	</div>
-	<div class ="flex justify-center w-full h-1/4 items-center mb-8"><button onclick="hide()" class="w-32 h-12 bg-purple-900 text-white rounded-xl hover:text-purple-800 hover:bg-white hover:border border-purple-800">Show less</button></div>
-</div>
+		<?php endforeach ?>
 </div>
 <div class="bg-gray-200 h-[500px] w-full flex justify-around items-center">
 <div class="flex flex-col justify-center w-[75%]">

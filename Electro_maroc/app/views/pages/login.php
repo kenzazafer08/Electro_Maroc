@@ -7,14 +7,18 @@
         </div>
         <div class="w-1/2 h-full bg-white bg-cover flex flex-col items-center justify-around">
            
-<form class="w-2/3">
-  <div class="mb-6">
+<form class="w-2/3" action="<?=URLROOT?>/pages/login" method="POST">
+  	
+<span class="text-red-700 font-bold text-2xl text-center"><?=$data['login']?></span>
+  <div class="mt-6 mb-6">
     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" placeholder="name@gmail.com" required>
+    <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" placeholder="name@gmail.com" required>
+    <span class="text-red-700 font-bold text-sm text-center"><?=$data['username_err']?></span>
   </div>
   <div class="mb-6">
     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-    <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" required>
+    <input type="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" required>
+    <span class="text-red-700 font-bold text-sm text-center"><?=$data['password_err']?></span>
   </div>
 <p class="text-sm font-thin text-center mb-4">You don't have an account ! <a href="<?php echo URLROOT; ?>/pages/register" class="font-bold text-purple-800">Register</a></p>
 

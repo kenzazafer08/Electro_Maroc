@@ -12,3 +12,5 @@
   // Site Name
   define('SITENAME', 'Electro Maroc');
   // App Version
+
+  define('Imagepath' , 'http://localhost/Electro_Maroc_admin/public/img/upload');

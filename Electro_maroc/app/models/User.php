@@ -1,40 +1,45 @@
 <?php
-  class User {
+class User {
     private $db;
-
+    
     public function __construct(){
-      $this->db = new Database;
+        $this->db = new Database;
     }
+    public function login($username, $password){
+        $this->db->query("SELECT * FROM client WHERE email = :username");
+        $this->db->bind('username', $username);
 
-    // Regsiter user
-    public function register($data){
-      $this->db->query('INSERT INTO users (name, email, password) VALUES(:name, :email, :password)');
-      // Bind values
-      $this->db->bind(':name', $data['name']);
-      $this->db->bind(':email', $data['email']);
-      $this->db->bind(':password', $data['password']);
+        $this->db->execute();
 
-      // Execute
-      if($this->db->execute()){
-        return true;
-      } else {
+        $row = $this->db->single();
+        $userPass = $row->password;
+        if( $password === $userPass){
+            return $row;
+        }
         return false;
-      }
     }
+    public function findUserByUsername($username){
+        $this->db->query('SELECT * FROM client WHERE email = :username');
+        $this->db->bind('username', $username);
 
-    // Find user by email
-    public function findUserByEmail($email){
-      $this->db->query('SELECT * FROM users WHERE email = :email');
-      // Bind value
-      $this->db->bind(':email', $email);
+        $this->db->single();
 
-      $row = $this->db->single();
-
-      // Check row
-      if($this->db->rowCount() > 0){
-        return true;
-      } else {
+        if($this->db->rowCount() > 0){
+            return true;
+        }
         return false;
-      }
     }
-  }
+    public function register($client){
+        $this->db->query("INSERT INTO client (Nom , email , tele , Adress , password ) VALUES (:Nom , :email ,:tele,:Adress , :password )");
+        $this->db->bind("Nom", $client['name']);
+        $this->db->bind("email", $client['email']);
+        $this->db->bind("tele", $client['phone']);
+        $this->db->bind("Adress", $client['adress']);
+        $this->db->bind("password", $client['password']);
+        $this->db->execute();
+        if($this->db->rowCount() < 1){
+            return false;
+        }
+        return true;
+    }
+}
