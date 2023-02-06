@@ -5,7 +5,7 @@
    * URL FORMAT - /controller/method/params
    */
   class Core {
-    protected $currentController = 'Pages';
+    protected $currentController = 'Login';
     protected $currentMethod = 'index';
     protected $params = [];
 
@@ -14,7 +14,7 @@
 
       $url = $this->getUrl();
        if($url == null){
-        $this->currentController = 'pages';
+        $this->currentController = 'Login';
        }
       // Look in controllers for first value
       else if(file_exists('../app/controllers/' . $url[0]. '.php')){

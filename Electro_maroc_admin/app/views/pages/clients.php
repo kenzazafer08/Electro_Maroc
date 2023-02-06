@@ -19,62 +19,22 @@
             </tr>
         </thead>
         <tbody>
+        <?php foreach($data['clients'] as $client) :?> 
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                ZAFER Kenza
+                <?=$client->Nom?>
                 </th>
                 <td class="py-4 px-6">
-                0634047964
+                <?=$client->tele?>
                 </td>
                 <td class="py-4 px-6">
-                    kanzazafer@gmail.com
+                <?=$client->email?>
                 </td>
                 <td class="py-4 px-6">
-                70 RUE EL OUMAM QU HOPITAL SAFI
+                <?=$client->Adress?>
                 </td>
             </tr>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                ZAFER Kenza
-                </th>
-                <td class="py-4 px-6">
-                0634047964
-                </td>
-                <td class="py-4 px-6">
-                    kanzazafer@gmail.com
-                </td>
-                <td class="py-4 px-6">
-                70 RUE EL OUMAM QU HOPITAL SAFI
-                </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                ZAFER Kenza
-                </th>
-                <td class="py-4 px-6">
-                0634047964
-                </td>
-                <td class="py-4 px-6">
-                    kanzazafer@gmail.com
-                </td>
-                <td class="py-4 px-6">
-                70 RUE EL OUMAM QU HOPITAL SAFI
-                </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                ZAFER Kenza
-                </th>
-                <td class="py-4 px-6">
-                0634047964
-                </td>
-                <td class="py-4 px-6">
-                    kanzazafer@gmail.com
-                </td>
-                <td class="py-4 px-6">
-                70 RUE EL OUMAM QU HOPITAL SAFI
-                </td>
-            </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
 </div>
