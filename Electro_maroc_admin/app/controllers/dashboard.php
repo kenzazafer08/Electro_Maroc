@@ -45,13 +45,28 @@ public function index(){
     $this->view('pages/clients', $data);
   }
   public function Orders(){
-    $orders = $this->orderModel->getOrder();
-    $orderProducts = $this->orderModel->getProducts();
-    $data = [
-      'orders' => $orders,
-      'products' => $orderProducts
-      ];
-    $this->view('pages/orders', $data);
+    $total = 0;
+  $order = $this->orderModel->getOrder();
+  $data = array();
+  foreach($order as $order){
+    $orderProducts = $this->orderModel->getProducts($order->id_order);
+    $products = array();
+    foreach( $orderProducts as  $orderProducts){
+      $total = $total + $orderProducts->prix ;
+      $name =  $orderProducts->name;
+      array_push($products ,$name);
+    }
+    $orders = [
+      'id' =>$order->id_order,
+      'Nom' => $order->Nom,
+      'total' => $total,
+      'etas' => $order->etas,
+      'products' => $products,
+      'date' => $order->date_creation
+    ];
+    array_push($data,$orders);
+  }
+  $this->view('pages/orders', $data);
   }
   public function Addproduct(){
     $categorie = $this->productModel->getCategories();
@@ -185,39 +200,59 @@ public function index(){
     }
   }
   public function validation($id = null){
-    if($id ==null || $this->orderModel->getSingleOrder($id) == null){
+    if($id ==null ){
       redirect('dashboard');
     }
-    $done = $this->orderModel->valider($id);
-    $orders = $this->orderModel->getOrder();
-    if($done){
-      $data = [  
-    'orders' => $orders ,
-    ];
-    $this->view('pages/orders', $data);
-    }else{
-      $data=[
-        'products' => $orders ,
-      ];
-      $this->view('pages/orders', $data);
+    $this->orderModel->valider($id);
+    $total = 0;
+  $order = $this->orderModel->getOrder();
+  $data = array();
+  foreach($order as $order){
+    $orderProducts = $this->orderModel->getProducts($order->id_order);
+    $products = array();
+    foreach( $orderProducts as  $orderProducts){
+      $total = $total + $orderProducts->prix ;
+      $name =  $orderProducts->name;
+      array_push($products ,$name);
     }
+    $orders = [
+      'id' =>$order->id_order,
+      'Nom' => $order->Nom,
+      'total' => $total,
+      'etas' => $order->etas,
+      'products' => $products,
+      'date' => $order->date_creation
+    ];
+    array_push($data,$orders);
+  }
+  $this->view('pages/orders', $data);
   }
   public function anulation($id = null){
-    if($id ==null || $this->productModel->getSingleOrder($id) == null){
+    if($id ==null ){
       redirect('dashboard');
     }
-    $done = $this->productModel->annuler($id);
-    $orders = $this->productModel->getOrder();
-    if($done){
-      $data = [  
-    'products' => $orders ,
-    ];
-    $this->view('pages/orders', $data);
-    }else{
-      $data=[
-        'products' => $orders ,
+    $this->orderModel->annuler($id);
+    $total = 0;
+    $order = $this->orderModel->getOrder();
+    $data = array();
+    foreach($order as $order){
+      $orderProducts = $this->orderModel->getProducts($order->id_order);
+      $products = array();
+      foreach( $orderProducts as  $orderProducts){
+        $total = $total + $orderProducts->prix ;
+        $name =  $orderProducts->name;
+        array_push($products ,$name);
+      }
+      $orders = [
+        'id' =>$order->id_order,
+        'Nom' => $order->Nom,
+        'total' => $total,
+        'etas' => $order->etas,
+        'products' => $products,
+        'date' => $order->date_creation
       ];
-      $this->view('pages/orders', $data);
+      array_push($data,$orders);
     }
+    $this->view('pages/orders', $data);
   }
 }

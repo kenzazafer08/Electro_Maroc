@@ -34,18 +34,27 @@ class Product
         $this->db->execute();
         return $this->db->resultSet();
     }
-    public function addProduct($product){
-        $this->db->query("SELECT * FROM client WHERE email = :email");
-        $this->db->bind('email', $_SESSION['username']->email);
+    public function addProduct($data){
+        $this->db->query("SELECT * from card WHERE id_client = :id && id_product =  :id_produit");
+        $this->db->bind('id' , $data['id_client']);
+        $this->db->bind('id_produit' , $data['id_produit']);
         $this->db->execute();
-        $row = $this->db->single();
-        $this->db->query("INSERT INTO card (id_client, id_product) VALUES (:id_client , :id_product )");
-        $this->db->bind("id_client", $row->id);
-        $this->db->bind("id_product", $product);
+        if($this->db->rowCount() < 1){
+        $this->db->query("INSERT INTO card (id_client ,id_product , quantity) VALUES (:id_client, :id_product ,:quantity)");
+        $this->db->bind("id_client", $data['id_client']);
+        $this->db->bind("id_product", $data['id_produit']);
+        $this->db->bind("quantity", $data['quantity']);
         $this->db->execute();
         if($this->db->rowCount() < 1){
             return false;
         }
         return true;
+        }
+    }
+    public function productsCARD($data){
+        $this->db->query("SELECT * from card JOIN produit on produit.id = card.id_product WHERE id_client = :id");
+        $this->db->bind('id' , $data['client']);
+        $this->db->execute();
+        return $this->db->resultSet();
     }
 }

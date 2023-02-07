@@ -2,6 +2,7 @@
   class Client extends Controller {
     public $productModel;
     public $order;
+    public $id;
     public function __construct(){
         if(!isset($_SESSION['username'])){
             $data = [
@@ -13,6 +14,7 @@
             $this->view('pages/login', $data);
           
         }else{
+        $this->id = $_SESSION['username']->id;
         $this->productModel = $this->model('product');
         $this->order = $this->model('order');
     }
@@ -36,7 +38,13 @@
     $this->view('pages/shop',$data);
   }
   public function Addtocart($id){
-    $this->productModel->addProduct($id);
+    $data = [
+      'quantity' => $_POST['quantity'],
+       'id_client' => $_SESSION['username']->id,
+       'id_produit' => $id
+    ];
+    
+    $this->productModel->addProduct($data);
     $categorie = $this->productModel->getCategories();
     $product = $this->productModel->get4Product();
     $data = [
@@ -46,10 +54,26 @@
     $this->view('pages/shop',$data);
   }
   public function orders(){
-    $data = [
+    $total = 0;
+  $order = $this->order->getOrder($this->id);
+  $data = array();
+  foreach($order as $order){
+    $orderProducts = $this->order->getProducts($order->id_order);
+    $products = array();
+    foreach( $orderProducts as  $orderProducts){
+      $total = $total + $orderProducts->prix ;
+      $name =  $orderProducts->name;
+      array_push($products ,$name);
+    }
+    $orders = [
+      'total' => $total,
+      'etas' => $order->etas,
+      'products' => $products,
+      'date' => $order->date_creation
     ];
-
-    $this->view('pages/orders', $data);
+    array_push($data,$orders);
+  }
+  $this->view('pages/orders', $data);
   }
   public function cart(){
     $cart = $this->order->getCart($_SESSION['username']->id);
@@ -59,8 +83,46 @@
 
     $this->view('pages/cart', $data);
   }
-  public function confirm($id){
-    $this->order->vidercart($id);
+  public function confirm(){
+  $this->order->addorder();
+  $order = $this->order->order();
+  $data = [
+    'client' => $this->id
+  ];
+  $products = $this->productModel->productsCARD($data); 
+  foreach($products as $product){
+    $data = [
+      'order' => $order->id_order,
+      'prix' => $product->quantity*$product->prix,
+      'id_produit' => $product->id,
+      'quantity' => $product->quantity,
+    ];
+    $this->order->ligncommande($data);
+  }
+  $this->order->vidercart();
+  $total = 0;
+  $order = $this->order->getOrder($this->id);
+  $data = array();
+  foreach($order as $order){
+    $orderProducts = $this->order->getProducts($order->id_order);
+    $products = array();
+    foreach( $orderProducts as  $orderProducts){
+      $total = $total + $orderProducts->prix ;
+      $name =  $orderProducts->name;
+      array_push($products ,$name);
+    }
+    $orders = [
+      'total' => $total,
+      'etas' => $order->etas,
+      'products' => $products,
+      'date' => $order->date_creation
+    ];
+    array_push($data,$orders);
+  }
+  $this->view('pages/orders', $data);
+  }
+public function deleteproduct($id){
+    $this->order->deleteproduct($id,$_SESSION['username']->id);
     $cart = $this->order->getCart($_SESSION['username']->id);
     $data = [
         'cart' => $cart 

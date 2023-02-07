@@ -19,30 +19,25 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach($data['orders'] as $order):?>
+        <?php foreach ($data as $order) :?>
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <?=$order->Nom?>
+                <?=$order['Nom']?>
                 </th>
                 <td class="py-4 px-6">
-                <ul>
-                    <?php foreach($data['products'] as $product): ?>
-                    <?php if($product->id_commande == $order->id_order ): ?>
-                    <li><?= $product->name?></li>
-                    <?php endif ?>
+                <?php foreach($order['products'] as $product) :?>
+                  <?=$product ?></br>
                     <?php endforeach ?>
-                    
-                </ul>
                 </td>
                 <td class="py-4 px-6">
-                <?=$order->prix_total?>
+                <?=$order['total']?>
                 </td>
-<?php if($order->etas == null):?>
+<?php if($order['etas'] == null ):?>
                 <td class="py-4 px-6">
-<a href="<?=URLROOT?>dashboard/valid/<?=$order->id_order?>" class="font-medium text-purple-600 hover:underline p-4"><i class="fa fa-edit"></i></a>
-<a href="<?=URLROOT?>dashboard/annuler/<?=$order->id_order?>" class="font-medium text-purple-600 hover:underline p-4"><i class="fa fa-trash-o"></i></a>                    
+<a href="<?=URLROOT?>dashboard/validation/<?=$order['id']?>" class="font-medium text-purple-600 hover:underline p-4"><i class="fa fa-check"></i></a>
+<a href="<?=URLROOT?>dashboard/anulation/<?=$order['id']?>" class="font-medium text-purple-600 hover:underline p-4"><i class="fa fa-trash-o"></i></a>                    
           </td>
-         <?php elseif($order->etas == 1) :?> 
+         <?php elseif($order['etas'] == 1) :?> 
             <td class="py-4 px-6">
                 <span class="text-green-500">Valider</span>
          </td>
