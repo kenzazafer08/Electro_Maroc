@@ -129,12 +129,11 @@ public function index(){
         'prix' => $_POST['prix'],
         'cat' => $_POST['cat'],
         'cat_name' => $product->nom,
-        'image' => '',
         'categories' => $categorie,
         'add' => '',
       ];
        if(!empty($_FILES['image']['name'])){
-        $image = $_FILES['image'];
+      $image = $_FILES['image'];
       $image_dir = "./../public/img/upload/";
       move_uploaded_file($image['tmp_name'], $image_dir . $image['name']);
       $imagepath = $image['name'];
@@ -143,7 +142,7 @@ public function index(){
             ];
           }else{
             $data +=[
-              'image' => $product->image
+              'image' => $_POST['img']
             ];
           }
           $done =  $this->productModel->edit($data);

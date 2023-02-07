@@ -15,6 +15,7 @@
       <label for="disc" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Discription</label>
   </div>
   <label class="block mb-2 text-sm font-medium text-gray-500 " for="small_size">Image</label>
+  <input class="hidden" name="img" value="<?$data['image']?>"/>
 <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="small_size" name="image" type="file">
 
   <div class="grid md:grid-cols-2 md:gap-6">
