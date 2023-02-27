@@ -13,17 +13,20 @@
                     Image
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Price
+                    Prix
                 </th>
                 <th scope="col" class="py-3 px-6">
                     Quantité
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Prix quantité
                 </th>
                 <th scope="col" class="py-3 px-6">
                     Action
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="products">
             
             <?php foreach ($data['cart'] as $cart) : ?>
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -37,7 +40,12 @@
                 <?=$cart->prix?> DH
                 </td>
                 <td class="py-4 px-6"> 
-                <?=$cart->quantity?>
+                <button class="minus" data-client="<?=$cart->id_client?>" data-produit="<?=$cart->id_product?>">-</button>
+                <input type="text" class="quantity w-8 border-0" min="1" value="<?=$cart->quantity?>">
+                <button class="plus" data-client="<?=$cart->id_client?>" data-produit="<?=$cart->id_product?>">+</button>
+                </td>
+                <td class="py-4 px-6">
+                <?=$cart->prix_q?> DH
                 </td>
                 <td class="py-4 px-6">
     
@@ -50,7 +58,7 @@
     </table>
    
 </div>
-<a href="<?=URLROOT?>/client/confirm/"  class="m-auto m-5 text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Confirmer</a>
-</div>
+<div class="m-10 flex w-[20%] justify-around items-center font-bold"><a href="<?=URLROOT?>/client/confirm/"  class="m-auto m-5 text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Confirmer</a>
+</div></div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

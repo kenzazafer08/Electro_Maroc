@@ -61,4 +61,13 @@ class Product
         }
         return true;
     }
+    public function catdelete($id_categorie){
+        $this->db->query('UPDATE produit SET Pdelete = 0 WHERE id_categorie = :id');
+        $this->db->bind('id' , intval($id_categorie));
+        $this->db->execute();
+        if($this->db->rowCount() < 1){
+            return false;
+        }
+        return true;
+    }
 }

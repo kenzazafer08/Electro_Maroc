@@ -19,6 +19,9 @@
                 <th scope="col" class="py-3 px-6">
                     Etas
                 </th>
+                <th scope="col" class="py-3 px-6">
+                    details
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -26,14 +29,14 @@
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                  <?php foreach($order['products'] as $product) :?>
-                  <?=$product ?></br>
+                  <?=$product['name'] ?></br>
                     <?php endforeach ?>
                 </th>
                 <td class="py-4 px-6">
                 <?=$order['date']?>
                 </td>
                 <td class="py-4 px-6">
-                <?=$order['total']?>
+                <?=$order['total']?> DH
                 </td>
                 <td class="py-4 px-6">
                     <?php if($order['etas'] == null){?>
@@ -43,6 +46,9 @@
                     <?php }else{ ?>
                         <span class="font-bold text-green-600">Valider</span>
                     <?php } ?>
+                </td>
+                <td class="py-4 px-6">
+                <a href="<?=URLROOT?>/client/detailorder/<?=$order['id']?>" class="w-1/4 px-6 py-2 mb-2 text-md text-white bg-purple-800 hover:text-white text-purple-900 border border-white text-center rounded-xl"><i class="fa fa-info"></i></a>
                 </td>
             </tr>
             <?php endforeach?>

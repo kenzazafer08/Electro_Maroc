@@ -3,6 +3,7 @@
     public $productModel;
     public $orderModel;
     public $userModel;
+    public $categorieModel;
     public function __construct(){
         if(!isLoggedIn($_SESSION['username'])){
             redirect('/Login');
@@ -10,10 +11,11 @@
         $this->productModel = $this->model('product');
         $this->orderModel = $this->model('order');
         $this->userModel = $this->model('client');
+        $this->categorieModel = $this->model('categorie');
         }
      } 
 public function index(){
-
+  $categorie = $this->productModel->getCategories();
   $products = $this->productModel->countproduct();
   $orders = $this->orderModel->countorder();
   $users = $this->userModel->countuser();
@@ -21,12 +23,120 @@ public function index(){
   $norders = $orders['total'];
   $nusers = $users['total'];
   $data = [
+    'categories' => $categorie,
     'nproducts' => $nproducts,
     'norders' => $norders,
-    'nusers' => $nusers
+    'nusers' => $nusers,
+    'cat' => '',
+    'method' => 'addcat',
+    'cat' => '',
+    'id' => '',
+    'button' => 'Add'
   ];
   $this->view('pages/dashbord', $data);
   }
+  public function addcat(){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $name = $_POST['name_cat']; 
+      $this->categorieModel->addCat($name);
+      
+    }
+    $categorie = $this->productModel->getCategories();
+    $products = $this->productModel->countproduct();
+    $orders = $this->orderModel->countorder();
+    $users = $this->userModel->countuser();
+    $nproducts = $products['total'];
+    $norders = $orders['total'];
+    $nusers = $users['total'];
+
+    $data = [
+      'categories' => $categorie,
+      'nproducts' => $nproducts,
+      'norders' => $norders,
+      'nusers' => $nusers,
+      'cat' => '',
+      'method' => 'addcat',
+      'cat' => '',
+      'id' => '',
+      'button' => 'Add'
+    ];
+    $this->view('pages/dashbord', $data);
+    }
+    public function editcat($id){
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['name_cat']; 
+        $this->categorieModel->edit($name,$id);
+        $categorie = $this->productModel->getCategories();
+        $products = $this->productModel->countproduct();
+        $orders = $this->orderModel->countorder();
+        $users = $this->userModel->countuser();
+        $nproducts = $products['total'];
+        $norders = $orders['total'];
+        $nusers = $users['total'];
+
+        $data = [
+          'categories' => $categorie,
+          'nproducts' => $nproducts,
+          'norders' => $norders,
+          'nusers' => $nusers,
+          'cat' => '',
+          'method' => 'addcat',
+          'cat' => '',
+          'id' => '',
+          'button' => 'Add'
+        ];
+        $this->view('pages/dashbord', $data);
+      }else{
+        $cat = $this->categorieModel->getSingleCat($id);
+        $categorie = $this->productModel->getCategories();
+        $products = $this->productModel->countproduct();
+        $orders = $this->orderModel->countorder();
+        $users = $this->userModel->countuser();
+        $nproducts = $products['total'];
+        $norders = $orders['total'];
+        $nusers = $users['total'];
+    
+        $data = [
+          'categories' => $categorie,
+          'nproducts' => $nproducts,
+          'norders' => $norders,
+          'nusers' => $nusers,
+          'cat' => '',
+          'method' => 'editcat',
+          'cat' => $cat->nom,
+          'id' => $cat->id_cat,
+          'button' => 'Update'
+        ];
+        $this->view('pages/dashbord', $data);
+      }
+      }
+  public function deletecat($id = null){
+        if($id ==null || $this->productModel->getSingleProduct($id) == null){
+          redirect('dashboard');
+        }
+        $done = $this->categorieModel->delete($id);
+        $Dproducts = $this->productModel->catdelete($id);
+        $categorie = $this->productModel->getCategories();
+        $products = $this->productModel->countproduct();
+        $orders = $this->orderModel->countorder();
+        $users = $this->userModel->countuser();
+        $nproducts = $products['total'];
+        $norders = $orders['total'];
+        $nusers = $users['total'];
+
+        $data = [
+          'categories' => $categorie,
+          'nproducts' => $nproducts,
+          'norders' => $norders,
+          'nusers' => $nusers,
+          'cat' => '',
+          'method' => 'addcat',
+          'cat' => '',
+          'id' => '',
+          'button' => 'Add'
+        ];
+        $this->view('pages/dashbord', $data); 
+      }
   public function Products(){
     $products = $this->productModel->getProduct();
     $data = [
@@ -142,7 +252,7 @@ public function index(){
             ];
           }else{
             $data +=[
-              'image' => $_POST['img']
+              'image' => $product->image
             ];
           }
           $done =  $this->productModel->edit($data);
@@ -254,4 +364,36 @@ public function index(){
     }
     $this->view('pages/orders', $data);
   }
+  public function detailorder($id = null){
+    if($id == null){
+     redirect('/client');
+    }
+    $total = 0;
+    $order = $this->orderModel->single($id);
+    $orderProducts = $this->orderModel->getProducts($id);
+    $products = array();
+    foreach( $orderProducts as  $orderProducts){
+      $total = $total + $orderProducts->prix_q;
+      $product = [
+        'name' => $orderProducts->name,
+        'image' => $orderProducts->image,
+        'quantity' => $orderProducts->quantity,
+        'prix' => $orderProducts->prix_q
+      ];
+      array_push($products ,$product);
+    }
+    $data = [
+       'Nom' => $order->Nom, 
+       'email' => $order->email, 
+       'tele' => $order->tele,
+       'Adress' => $order->Adress,
+      'id' => $id,
+      'total' => $total,
+      'etas' => $order->etas,
+      'products' => $products,
+      'date' => $order->date_creation
+    ];
+     
+     $this->view('pages/detailorder', $data);
+     }
 }

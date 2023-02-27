@@ -64,10 +64,46 @@
                         <div class="mt-8">
 
                         </div>
-
+   <form method="POST" action="<?=URLROOT?>dashboard/<?=$data['method']?>/<?=$data['id']?>" class="mb-5">   
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <div class="relative">
+        <input type="text" name="name_cat" value="<?=$data['cat']?>" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="Add categorie..." required>
+        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"><?=$data['button']?></button>
+    </div>
+</form>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-scroll-y">
+         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Name
+                </th>
+                <th scope="col" class="py-3 px-6 w-1/4">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($data['categories'] as $cat) :?> 
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <?=$cat->nom?>
+                </th>
+                <td class="py-4 px-6">
+                <a href="<?=URLROOT?>dashboard/editcat/<?=$cat->id_cat?>" class="font-medium text-purple-600 hover:underline p-4"><i class="fa fa-edit"></i></a>
+                <a href="<?=URLROOT?>dashboard/deletecat/<?=$cat->id_cat?>" class="font-medium text-purple-600 hover:underline p-4"><i class="fa fa-trash-o"></i></a>  
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
                     </div>
                 </main>
+                
             </div>
+        </div>
+        
+        <div>
+
         </div>
     </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

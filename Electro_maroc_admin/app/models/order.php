@@ -9,6 +9,12 @@ class Order
         $this->db->query('select count(*) as total from commande');
         return $this->db->count();
     }
+    public function single($id){
+        $this->db->query('SELECT * FROM commande JOIN client on commande.id_client = client.id where id_order = :id');
+        $this->db->bind('id',$id);
+        $this->db->execute();
+        return $this->db->single();
+    }
     public function getOrder(){
         $this->db->query('SELECT * FROM commande JOIN client on commande.id_client = client.id ');
         $this->db->execute();

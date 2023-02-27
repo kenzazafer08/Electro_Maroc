@@ -2,9 +2,11 @@
   class Pages extends Controller {
     public $productModel;
     public $userModel;
+    public $order;
     public function __construct(){
       $this->productModel = $this->model('product');
       $this->userModel = $this->model('user');
+      $this->order = $this->model('order');
     }
     
     public function index(){
@@ -125,6 +127,18 @@
 
     $data = json_encode($product);
     echo $data;
-    
+  }
+  public function quantity(){
+      $test = json_decode(file_get_contents("php://input"));
+      $product = $this->productModel->getSingle($test->produit);
+      $data = [
+        'produit' => $test->produit,
+        'client' => $test->client,
+        'quantity' => $test->quantity,
+        'prix' => $product->prix * $test->quantity
+      ];
+      $this->order->updatecart($data);
+      $product = $this->order->getCart($_SESSION['username']->id); 
+      echo json_encode($product);
   }
   }

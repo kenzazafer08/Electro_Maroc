@@ -5,6 +5,12 @@ class Order
     public function __construct(){
         $this->db = new Database;
     }
+    public function single($id){
+        $this->db->query('SELECT * FROM commande JOIN client on commande.id_client = client.id where id_order = :id');
+        $this->db->bind('id',$id);
+        $this->db->execute();
+        return $this->db->single();
+    }
     public function getOrder($id){
         $this->db->query('SELECT * FROM commande JOIN client on commande.id_client = client.id where id_client = :id');
         $this->db->bind('id',$id);
@@ -31,6 +37,15 @@ class Order
             return false;
         }
         return true;
+    }
+    public function updatecart($data){
+        $this->db->query('UPDATE card set quantity = :q , prix_q = :p where id_client = :client and id_product = :product');
+        $this->db->bind('q' , $data['quantity']);
+        $this->db->bind('p' , $data['prix']);
+        $this->db->bind('client' , $data['client']);
+        $this->db->bind('product' , $data['produit']);
+        $this->db->execute();
+        return $this->db->resultSet();
     }
     public function deleteproduct($id,$id_client){
         $this->db->query('DELETE FROM card WHERE id_client = :id && id_product =  :id_produit');
@@ -60,7 +75,7 @@ class Order
         return $order;
     }
     public function ligncommande($data){
-        $this->db->query('INSERT INTO produit_commande (quantity, prix_pc, id_commande, id_produit) VALUES  (:quantity , :prix ,:id_order , :id_produit )');
+        $this->db->query('INSERT INTO produit_commande (quantity, prix_q, id_commande, id_produit) VALUES  (:quantity , :prix ,:id_order , :id_produit )');
         $this->db->bind('quantity' , $data['quantity']);
         $this->db->bind('prix' , $data['prix']);
         $this->db->bind('id_order' , $data['order']);

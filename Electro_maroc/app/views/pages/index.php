@@ -17,6 +17,7 @@
 		   <div class="text-center mx-2"><?=$product->description?></div>
 		   <div class="font-extrabold text-center m-4 "><?=$product->prix?> DH</div>
 		</div>
+        
 		<?php endforeach ?>
 </div>
 <div class="bg-gray-200 h-[500px] w-full flex justify-around items-center">

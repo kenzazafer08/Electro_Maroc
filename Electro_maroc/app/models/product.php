@@ -10,8 +10,14 @@ class Product
         $this->db->execute();
         return $this->db->resultSet();
     }
+    public function getSingle($id){
+        $this->db->query('SELECT * FROM produit JOIN categorie on produit.id_categorie = categorie.id_cat where id = :id');
+        $this->db->bind('id',$id);
+        $this->db->execute();
+        return $this->db->single();
+    }
     public function get4Product(){
-        $this->db->query('SELECT * FROM produit JOIN categorie on produit.id_categorie = categorie.id_cat ORDER BY produit.id DESC LIMIT 10');
+        $this->db->query('SELECT * FROM produit JOIN categorie on produit.id_categorie = categorie.id_cat where Pdelete = 1 ORDER BY produit.id DESC LIMIT 4');
         $this->db->execute();
         return $this->db->resultSet();
     }
@@ -40,10 +46,10 @@ class Product
         $this->db->bind('id_produit' , $data['id_produit']);
         $this->db->execute();
         if($this->db->rowCount() < 1){
-        $this->db->query("INSERT INTO card (id_client ,id_product , quantity) VALUES (:id_client, :id_product ,:quantity)");
+        $this->db->query("INSERT INTO card (id_client ,id_product , prix_q) VALUES (:id_client, :id_product ,:prix)");
         $this->db->bind("id_client", $data['id_client']);
         $this->db->bind("id_product", $data['id_produit']);
-        $this->db->bind("quantity", $data['quantity']);
+        $this->db->bind("prix", $data['prix']);
         $this->db->execute();
         if($this->db->rowCount() < 1){
             return false;

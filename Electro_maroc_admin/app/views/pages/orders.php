@@ -16,6 +16,9 @@
                 <th scope="col" class="py-3 px-6">
                     Validation
                 </th>
+                <th scope="col" class="py-3 px-6">
+                    Details
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -46,6 +49,9 @@
                 <span class="text-red-500">Annuler</span>
          </td>
         <?php endif ?> 
+        <td class="py-4 px-6">
+        <a href="<?=URLROOT?>dashboard/detailorder/<?=$order['id']?>" class="font-medium text-white hover:underline px-4 py-2 rounded-full bg-purple-600 "><i class="fa fa-info"></i></a>
+                </td>
             </tr>
         <?php endforeach?>
    </tbody>
