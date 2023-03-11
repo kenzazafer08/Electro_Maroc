@@ -33,6 +33,7 @@ $(document).ready(function(){
         const test = JSON.parse(data);
         console.log(test);
         displayCart(test);
+        displaytotal(test);
       }
     });
   });
@@ -41,12 +42,14 @@ $(document).ready(function(){
     const currentVal = parseInt($(this).next('.quantity').val());
     const client = $(this).data('client');
     const produit = $(this).data('produit');
+    const total = document.getElementById('total').innerHTML;
     const newVal = currentVal - 1;
     if (newVal >= 1) {
       $(this).next('.quantity').val(newVal);
       console.log(newVal);
       console.log(client);
       console.log(produit);
+      console.log(total)
       $.ajax({
         url: 'http://localhost/Electro_maroc/pages/quantity/',
         method: 'POST',
@@ -60,6 +63,7 @@ $(document).ready(function(){
           console.log(test);
           // Call a function to display updated cart data
           displayCart(test);
+          displaytotal(test);
         }
       });
     }
@@ -132,6 +136,15 @@ function displayCart(products){
         `
     });
 }
-
+function displaytotal(products){
+  const total = document.getElementById("total")
+  total.innerHTML = ''
+  let t = 0
+  products.forEach(product => {
+    console.log(product.prix)
+    t += parseInt(product.prix_q)
+});
+total.innerHTML += `Total : ${t}`
+}
 
 

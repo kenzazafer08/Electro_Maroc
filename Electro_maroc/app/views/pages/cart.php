@@ -58,7 +58,7 @@
     </table>
    
 </div>
-<div class="m-10 flex w-[20%] justify-around items-center font-bold"><a href="<?=URLROOT?>/client/confirm/"  class="m-auto m-5 text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Confirmer</a>
+<div class="m-10 flex w-[20%] justify-around items-center font-bold"><span id="total">Total : <?=$data['total']?></span><a href="<?=URLROOT?>/client/confirm/"  class="m-auto m-5 text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Confirmer</a>
 </div></div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
